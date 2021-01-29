@@ -1,0 +1,20 @@
+{
+  "name": "projeto-account-2",
+  "version": "1.0.0",
+  "description": "[Projeto disponível no Netlify](https://optimistic-wilson-effa63.netlify.app/)",
+  "main": "index.html",
+  "scripts": {
+    "server": "live-server ./ --verbose",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danilose/Projeto-Account-2.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/danilose/Projeto-Account-2/issues"
+  },
+  "homepage": "https://github.com/danilose/Projeto-Account-2#readme"
+}
