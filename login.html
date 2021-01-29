@@ -37,18 +37,18 @@
             <form class="g-3">
               <div class="col-md-10">
                <div class="form-group mt-3">
-                <label for="exampleInputPassword1">Usuário</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                <label for="inputUser">Usuário</label>
+                <input type="text" class="form-control" id="inputUser" placeholder="Usuário">
               </div>
               </div>
 
               <div class="col-md-10">
                 <div class="form-group mt-3">
-                <label for="exampleInputPassword1">Senha</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                <label for="inputPassword">Senha</label>
+                <input type="password" class="form-control" id="inputPassword" placeholder="Senha">
               </div>
               </div>
-              <a class="btn btn-dark mt-3" href="dash.html">Logar</a>
+              <button type="button" class="btn btn-dark mt-3" id="submitLogin">Logar</button>
             </form>
           </div>
           <img class="img-fluid" src="images/login.jpg" >
@@ -59,5 +59,8 @@
     <footer class="footer">
       <h6 class="footer--title text-white">Account CopyRight 2021.</h6>
     </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous"></script>
+    <script src="./js/login.script.js"></script>
   </body>
 </html>
