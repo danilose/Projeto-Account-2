@@ -148,6 +148,14 @@ p {
   margin: .5rem;
 }
 
+
+/* ACCOUNT CREDIT && BANK */
+.account {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 /* TRANSACTIONS */
 
 .transactions {
