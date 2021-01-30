@@ -7,6 +7,7 @@
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous"></script>
 
   <link rel="stylesheet" type="text/css" href="./css/dash.styles.css">
 
@@ -52,8 +53,8 @@
               <th scope="col">Valor</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
+          <tbody id="tableBody">
+            <!-- <tr>
               <th scope="row">01/02/2021</th>
               <td>Conta de luz</td>
               <td class="red--text">R$ -153,85</td>
@@ -67,7 +68,7 @@
               <th scope="row">09/02/2021</th>
               <td>Transferencia para Douglas</td>
               <td class="red--text">R$ -546,71</td>
-            </tr>
+            </tr> -->
           </tbody>
         </table>
       </div>
@@ -150,7 +151,7 @@
   <section class="container transactions">
 
     <div class="text-center transactions--title">
-      <h1>Trasações</h1>
+      <h1>Transações</h1>
     </div>
 
     <div class="transactions--wrapper">
@@ -224,7 +225,7 @@
     integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
     crossorigin="anonymous"></script>
 
-  <script src="./js/script.js"></script>
+  <script src="./js/dashboard.js"></script>
 </body>
 
 </html>
