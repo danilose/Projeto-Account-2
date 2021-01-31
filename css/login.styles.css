@@ -1,0 +1,17 @@
+/* LOGIN */
+.login--image {
+  width: 500px;
+  height: 500px;
+}
+
+@media screen and (max-width: 1000px) {
+  .login {
+    flex-direction: column;
+    margin-top: 15vh;
+  }
+}
+
+.success-text {
+  position: fixed;
+  top: 100px;
+}

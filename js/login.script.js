@@ -1,23 +1,20 @@
 // espera o DOM estar completamente carregado para continuar
 document.addEventListener("DOMContentLoaded", function(event) {
 
-  var getUrl = window.location;
+  // verifica se tem alguma msg pro usuário
+  let msgText = localStorage.getItem('@flashMessage')
 
-  console.log(getUrl);
-
-  // url base da API
-  const baseURL = 'https://accenture-java-desafio.herokuapp.com';
-
-  // função para adicionar e remover estilo quando o input está válido
-  function inputValid(obj) {
-    obj.classList.remove('is-invalid');
-    obj.classList.add('is-valid');
-  }
-
-  // função para adicionar e remover estilo quando o input está inválido
-  function inputInvalid (obj) {
-    obj.classList.remove('is-valid');
-    obj.classList.add('is-invalid');
+  // se tiver
+  if (msgText) {
+    // arruma a msg e exibe
+    let msg = document.querySelector('#msg');
+    msg.innerHTML = msgText;
+    msg.hidden = false;
+    localStorage.removeItem('@flashMessage');
+  } else {
+    // esconde a msg
+    msg.innerHTML = '';
+    msg.hidden = true;
   }
 
   // função para validar o preenchimento do formulário
@@ -63,10 +60,17 @@ document.addEventListener("DOMContentLoaded", function(event) {
   document.querySelectorAll('input').forEach(input => {
     // para cada input adiciona o evento onChange para validar o formulário
     input.addEventListener('change', formValidation);
+    // para cada input adiciona o evento onKeyUp para validar o formulário
+    input.addEventListener('keyup', formValidation);
+
   });
 
   // adiciona o evento de click no botão de Login
   document.querySelector('#submitLogin').addEventListener('click', () => {
+
+    let alert = document.querySelector('#alert');
+    alert.hidden = true;
+    alert.innerHTML = '';
 
     // se o formulário foi preenchido corretamente
     if (formValidation()) {
@@ -108,11 +112,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
           console.log(error.response.status);
           console.log(error.response.headers);
 
-          let alert = document.querySelector('#alert');
-          alert.classList.add("alert-danger")
           alert.innerHTML = 'Usuário ou senha inválidos!';
-          alert.classList.add("visible");
-          return Promise.reject(error.response);
+          alert.hidden = false;
 
         } else if (error.request) {
           /*

@@ -69,6 +69,10 @@ button, a {
   color: #933EBE;
 }
 
+.alert-text {
+  color: #842029;
+}
+
 /* HEADER */
 .header--dash-show {
   display: block;
@@ -124,15 +128,15 @@ button, a {
   display:block;
   content: '';
   border-radius: 8px;
-  border-bottom: solid 3px #933EBE;  
-  transform: scaleX(0);  
+  border-bottom: solid 3px #933EBE;
+  transform: scaleX(0);
   transition: transform 350ms ease-in-out;
   transform-origin:100% 50%
 }
 
 .navbar-link:active:after,
 .navbar-link:focus:after,
-.navbar-link:hover:after { 
+.navbar-link:hover:after {
   transform: scaleX(1);
   transform-origin:0 50%;
 }
@@ -336,7 +340,7 @@ button, a {
 /* GALLERY */
 .gallery {
   padding-top: 95px;
-  background-image: linear-gradient(to right bottom, #630b90, #6c1798, #7521a1, #7e2aa9, #8733b2, #8733b2, #8733b2, #8733b2, #7e2aa9, #7521a1, #6c1798, #630b90);  
+  background-image: linear-gradient(to right bottom, #630b90, #6c1798, #7521a1, #7e2aa9, #8733b2, #8733b2, #8733b2, #8733b2, #7e2aa9, #7521a1, #6c1798, #630b90);
   min-height: calc(100vh - 95px);
 }
 
@@ -527,7 +531,6 @@ button, a {
 .card-product .card-product-infos {
   padding: 16px;
 }
-
 
 /* LOGIN */
 .login--image {
