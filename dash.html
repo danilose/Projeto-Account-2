@@ -22,6 +22,7 @@
         <span class="purple--text">Acc</span>ount
       </a>
       <div class="header--nav">
+        <a class="navbar-link text-dark" href="index.html">Home</a>
         <a class="navbar-link text-dark" href="index.html" id="logoutButton">Logout</a>
       </div>
     </div>
@@ -47,16 +48,16 @@
   </div>
 
   <!-- Tabela de Lançamentos -->
-  <section class="container top--offset information">
+  <section class="container top--offset information area-150">
 
     <div class="text-center information--title">
-      <h1>DashBoard</h1>
+      <h1 class="fw-bold"><span class="marine--text">Dash</span>Board</h1>
     </div>
 
     <div class="information--wrapper">
       <div class="information--table col-md-6 me-2">
-        <table class="table table-striped caption-top">
-          <caption class="fw-bold">Lançamentos Futuros(Planos Conta)</caption>
+        <table class="table table-striped table-hover caption-top">
+          <caption class="fw-bold purple--text">Lançamentos Futuros(Planos Conta)</caption>
           <thead>
             <tr>
               <th scope="col">Data</th>
@@ -185,8 +186,8 @@
 
   <!-- Tabela de Contas (Banco && Crédito) -->
   <section class="account container">
-    <table class="table table-striped caption-top me-4">
-      <caption class="fw-bold">Conta Banco</caption>
+    <table class="table table-striped table-hover caption-top me-4">
+      <caption class="fw-bold purple--text">Conta Banco</caption>
       <thead>
         <tr>
           <th scope="col">Data</th>
@@ -200,7 +201,7 @@
     </table>
 
     <table class="table table-striped caption-top">
-      <caption class="fw-bold">Conta Crédito</caption>
+      <caption class="fw-bold purple--text">Conta Crédito</caption>
       <thead>
         <tr>
           <th scope="col">Data</th>
@@ -242,7 +243,7 @@
         </div>
       </div>
 
-      <div class="creditCard-body your-cards--card">
+      <div class="creditCard-body your-cards--card mx-4">
         <div class="creditCard-inner">
           <div class="creditCard-front gold-bg-front">
             <h5 class="creditCard-title gold-text">Gold</h5>
@@ -293,7 +294,7 @@
 
     <div class="transactions--wrapper">
       <div class="transactions--table">
-        <table class="table table-striped caption-top">
+        <table class="table table-striped table-hover caption-top">
           <caption class="fw-bold">Entradas</caption>
           <thead>
             <tr>
@@ -356,7 +357,10 @@
 
   <!-- Footer -->
   <footer class="footer area-150">
-    <h6 class="footer--title text-white">Account CopyRight 2021.</h6>
+    <h6 class="footer--title text-white">AccountBank CopyRight 2021.</h6>
+    <div class="footer--logo">
+      <span class="purple--text">Acc</span>ount
+    </div>
   </footer>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous"></script>
@@ -365,6 +369,7 @@
     crossorigin="anonymous"></script>
 
   <script src="./js/dashboard.js"></script>
+  <script src="./js/header.js"></script>
 </body>
 
 </html>

@@ -62,11 +62,12 @@ axios.get(`${baseURL}${dashBoardParam}${userData.login}`, defaultHeader)
     )
   }).join('') : `<tr><td>Nenhum Lançamento até o momento.</td></tr>`;
 
+  // Mostra Saldo e nº de conta no box de profile e colocar elementos em tabela.
   contaNumero.innerHTML = `Conta nº: ${contaBanco.id}`;
-  saldoInput.innerHTML =  contaBanco.saldo.toFixed(2);
+  saldoInput.innerHTML =  contaBanco.saldo.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'});
   creditTable.innerHTML = creditTableBody;
   bankTable.innerHTML =   bankTableBody;
-});
+});//Fim do GET.
 
 // Pega os dados da conta do usuário (conta Banco e conta Crédito);
 // ENDPOINT na API => /lancamentos/planos-conta
@@ -87,7 +88,7 @@ axios.get(`${baseURL}${planosContaParam}${userData.login}`, defaultHeader)
   tabelaPlanosConta.innerHTML = conteudoTabela;
 })
 
-// Lançamentos/planos-conta POST
+// Lançamentos/planos-conta POST.
 const botaoPagar = document.getElementById('paymentButton');
 botaoPagar.addEventListener('click', () => {
   const filter = document.getElementById('paymentFilter');
@@ -97,7 +98,7 @@ botaoPagar.addEventListener('click', () => {
 
 })
 
-// verifica se o clique foi no filtro e fecha o modal caso seja true.
+// verifica se o clique foi no filtro e fecha o modal caso tenha sido.
 function fechaModal(tipo, filtro, classe, event) {
   // o primeiro if será utilizado para o botão cancelar.
   if (!classe && !event) {
@@ -119,13 +120,15 @@ confirmaPagamento.addEventListener('click', () => {
   const login =         document.getElementById('pagamentoLogin')    .value;
   const padrao =        document.getElementById('pagamentoPadrao')   .value;
   const tipoMovimento = document.getElementById('pagamentoTipo')     .value;
+  
   axios.post(`${baseURL}${pagamentoParam}`, {
     descricao,
     id,
     login,
     padrao,
     tipoMovimento
-  }, defaultHeader)
+  }, 
+  defaultHeader)
   .then(() => {
     console.log('Pagamento realizado com sucesso!');
   })
@@ -177,7 +180,7 @@ const confirmaTransferencia = document.getElementById('transferOkButton')
 })
 
 // Fecha o modal;
-let fechaModalTransferencias = document.getElementById('filter')
+const fechaModalTransferencias = document.getElementById('filter')
 .addEventListener('click', (event) => {
   fechaModal('transferModal', 'filter', 'filter', event);
 })

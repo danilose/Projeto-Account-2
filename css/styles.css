@@ -70,6 +70,13 @@ button, a {
 }
 
 /* HEADER */
+.header--dash-show {
+  display: block;
+}
+.header--dash-hide {
+  display: none;
+}
+
 .header {
   background: #fff;
   position: fixed;
@@ -117,7 +124,7 @@ button, a {
   display:block;
   content: '';
   border-radius: 8px;
-  border-bottom: solid 3px #000;  
+  border-bottom: solid 3px #933EBE;  
   transform: scaleX(0);  
   transition: transform 350ms ease-in-out;
   transform-origin:100% 50%
@@ -463,6 +470,7 @@ button, a {
 
 /* FOOTER */
 .footer {
+  position: relative;
   background: #000;
   display: flex;
   align-items: center;
@@ -472,6 +480,16 @@ button, a {
 
 .footer--title {
   margin: 0;
+}
+
+.footer--logo {
+  font-style: 'Spartan', sans-serif;
+  font-size: 40px;
+  font-weight: 700;
+  color: #fff;
+  position: absolute;
+  right: 5%;
+  top: 8px;
 }
 
 
