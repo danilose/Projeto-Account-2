@@ -72,6 +72,10 @@ p {
   color: #090;
 }
 
+.purple--text {
+  color: #933EBE;
+}
+
 /* HEADER */
 .header {
   background: #fff;

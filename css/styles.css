@@ -65,6 +65,10 @@ button, a {
   color: #000;
 }
 
+.purple--text {
+  color: #933EBE;
+}
+
 /* HEADER */
 .header {
   background: #fff;
@@ -415,7 +419,7 @@ button, a {
   position: absolute;
   top: 3px;
   left: 0;
-  background: #8733b2;
+  background: #7b2ea1;
   width: 90%;
   height: 100%;
   transform: scaleX(1);
@@ -435,7 +439,7 @@ button, a {
   position: absolute;
   bottom: 3px;
   right: 0;
-  background: #8733b2;
+  background: #7b2ea1;
   width: 90%;
   height: 100%;
   transform: scaleX(1);
