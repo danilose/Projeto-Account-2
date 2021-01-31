@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
   function formValidation() {
     // pega os inputs
     let inputUser = document.querySelector("#fname");
-    let inputPassword = document.querySelector("#fcidade");
+    let inputPassword = document.querySelector("#fsenha");
 
     // inicializa a variável de controle da validação
     let validation = true;
@@ -79,6 +79,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
         nome: nome.value,
         senha: senha.value,
       };
+
+      console.log(cpf);
 
       // chama a API passando o objeto
       axios
