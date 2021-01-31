@@ -533,9 +533,15 @@ button, a {
 }
 
 /* LOGIN */
+
 .login--image {
   width: 500px;
   height: 500px;
+}
+
+.success-text {
+  position: fixed;
+  top: 100px;
 }
 
 @media screen and (max-width: 1000px) {
