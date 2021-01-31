@@ -14,6 +14,9 @@
 </head>
 
 <body>
+
+   
+
   <!-- Header Section -->
   <header class="header container-fluid">
     <div class="header--wrapper">
@@ -44,12 +47,12 @@
     <div class="information--wrapper">
       <div class="information--table">
         <table class="table table-striped caption-top">
-          <caption>Lançamentos Futuros</caption>
+          <caption>Lançamentos Futuros(Planos Conta)</caption>
           <thead>
             <tr>
               <th scope="col">Data</th>
               <th scope="col">Descrição</th>
-              <th scope="col">Valor</th>
+              <th scope="col">Tipo</th>
             </tr>
           </thead>
           <tbody id="tableBody">
@@ -58,12 +61,96 @@
         </table>
       </div>
       <div class="information--general">
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni nobis ipsa, est voluptas labore ad sit illo
-          necessitatibus quis ullam? Voluptatum quos quisquam ipsum veniam, eveniet atque exercitationem aut natus.</p>
+          <!-- Button trigger modal -->
+        <button type="button mt-5 pt-5" class="" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          Pagar Contas
+        </button>
+        <button class="" id="transferButton">Transferir</button>
       </div>
     </div>
   </section>
 
+  <div class="" id="filter">
+    <div class="transfer--modal" id="transferModal">
+      <h1>transferir</h1>
+      <form>
+        <section class="d-flex">
+          <div class="mb-3">
+            <label for="transferenciaConta" class="form-label">Conta</label>
+            <input type="text" class="form-control" id="transferenciaConta">
+          </div>
+          <div class="mb-3">
+            <label for="transferenciaDestino" class="form-label">Conta Destino</label>
+            <input type="text" class="form-control" id="transferenciaDestino">
+          </div>
+        </section>
+        <div class="mb-3">
+          <label for="transferenciaData" class="form-label">Data</label>
+          <input type="text" class="form-control" id="transferenciaData">
+        </div>
+        <div class="mb-3">
+          <label for="transferenciaDescricao" class="form-label">Descrição</label>
+          <input type="text" class="form-control" id="transferenciaDescricao">
+        </div>
+        <div class="mb-3">
+          <label for="transferenciaLogin" class="form-label">Login</label>
+          <input type="text" class="form-control" id="transferenciaLogin">
+        </div>
+        <div class="mb-3">
+          <label for="transferenciaPlano" class="form-label">Plano de Conta</label>
+          <input type="text" class="form-control" id="transferenciaPlano">
+        </div>
+        <div class="mb-3">
+          <label for="transferenciaValor" class="form-label">Valor</label>
+          <input type="text" class="form-control" id="transferenciaValor">
+        </div>
+
+        <button type="button" id="cancelButton">Cancelar</button>
+        <button type="button" id="transferOkButton">Transferir</button>
+      </form>
+    </div>
+  </div>
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Realizar Pagamento</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="pagamentoDescricao" class="form-label">Descrição</label>
+              <input type="text" class="form-control" id="pagamentoDescricao" aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3">
+              <label for="pagamentoId" class="form-label">ID</label>
+              <input type="password" class="form-control" id="pagamentoId">
+            </div>
+            <div class="mb-3">
+              <label for="pagamentoLogin" class="form-label">Login</label>
+              <input type="text" class="form-control" id="pagamentoLogin">
+            </div>
+            <div class="mb-3">
+              <label for="pagamentoPadrao" class="form-label">Padrão</label>
+              <input type="password" class="form-control" id="pagamentoPadrao">
+            </div>
+            <div class="mb-3">
+              <label for="pagamentoTipo" class="form-label">Tipo de Movimentação</label>
+              <input type="text" class="form-control" id="pagamentoTipo">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="gallery--card-button" data-bs-dismiss="modal"><span>Cancelar</span></button>
+          <button type="button" class="gallery--card-button" data-bs-dismiss="modal" id="payButton"><span>Pagar</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <section class="account container">
     <table class="table table-striped caption-top me-4">
