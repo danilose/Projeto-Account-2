@@ -19,6 +19,9 @@ if (!token) {
   window.location.replace('/');
 }
 
+// Coloca o nome de boas vindas
+document.getElementById('welcomeMessage').innerHTML = `Olá ${userData.nome}!`; 
+
 const creditTable = document.getElementById('tableBodyCredit');
 const bankTable =   document.getElementById('tableBodyBank');
 let contaNumero =   document.getElementById('contaNumero');
@@ -84,19 +87,38 @@ axios.get(`${baseURL}${planosContaParam}${userData.login}`, defaultHeader)
   tabelaPlanosConta.innerHTML = conteudoTabela;
 })
 
-
 // Lançamentos/planos-conta POST
-const botaoPagar =      document.getElementById('payButton');
-const botaoTransferir = document.getElementById('transferButton');
-
+const botaoPagar = document.getElementById('paymentButton');
 botaoPagar.addEventListener('click', () => {
+  const filter = document.getElementById('paymentFilter');
+  const modal = document.getElementById('paymentModal');
+  filter.classList.add('show-filter');
+  modal.classList.add('show-modal');
+
+})
+
+// verifica se o clique foi no filtro e fecha o modal caso seja true.
+function fechaModal(tipo, filtro, classe, event) {
+  // o primeiro if será utilizado para o botão cancelar.
+  if (!classe && !event) {
+    document.getElementById(filtro).classList.remove('show-filter');
+    document.getElementById(tipo).classList.remove('show-modal');
+  }
+  if (event.target.className.includes(classe)) {
+    document.getElementById(filtro).classList.remove('show-filter');
+    document.getElementById(tipo).classList.remove('show-modal');
+  }
+}
+
+
+const confirmaPagamento = document.getElementById('confirmPayment');
+
+confirmaPagamento.addEventListener('click', () => {
   const descricao =     document.getElementById('pagamentoDescricao').value;
   const id =            document.getElementById('pagamentoId')       .value;
   const login =         document.getElementById('pagamentoLogin')    .value;
   const padrao =        document.getElementById('pagamentoPadrao')   .value;
   const tipoMovimento = document.getElementById('pagamentoTipo')     .value;
-
-  // Envia um pagamento;
   axios.post(`${baseURL}${pagamentoParam}`, {
     descricao,
     id,
@@ -104,12 +126,25 @@ botaoPagar.addEventListener('click', () => {
     padrao,
     tipoMovimento
   }, defaultHeader)
-  .then(response => {
+  .then(() => {
     console.log('Pagamento realizado com sucesso!');
   })
+});
+
+// Fecha o modal de pagamentos.
+const fechaModalPagamentos = document.getElementById('paymentFilter')
+.addEventListener('click', (event) => {
+    fechaModal('paymentModal', 'paymentFilter', 'show-filter', event);
+})
+
+// Botão cancelar do modal de pagamentos.
+const botaoCancelarPagamentos = document.getElementById('cancelPayment')
+.addEventListener('click', () => {
+  fechaModal('paymentModal', 'paymentFilter');
 })
 
 // Lançamentos POST; Transfere dinheiro;
+const botaoTransferir = document.getElementById('transferButton');
 botaoTransferir.addEventListener('click', () => {
   // Abre o modal.
   const filter = document.getElementById('filter');
@@ -118,7 +153,8 @@ botaoTransferir.addEventListener('click', () => {
   modal.classList.add('show-modal');
   // trata a transfêrencia.
 })
-const confirmaTransferencia = document.getElementById('transferOkButton').addEventListener('click', () => {
+const confirmaTransferencia = document.getElementById('transferOkButton')
+.addEventListener('click', () => {
   const conta =         document.getElementById('transferenciaConta').value;
   const contaDestino =  document.getElementById('transferenciaDestino').value;
   const data =          document.getElementById('transferenciaData').value;
@@ -126,7 +162,6 @@ const confirmaTransferencia = document.getElementById('transferOkButton').addEve
   const login =         document.getElementById('transferenciaLogin').value;
   const planoConta =    document.getElementById('transferenciaPlano').value;
   const valor =         document.getElementById('transferenciaValor').value;
-  // console.log(conta, contaDestino, data, descricao, login, planoConta, valor);
 
   axios.post(`${baseURL}lancamentos`, {
     conta,
@@ -141,16 +176,20 @@ const confirmaTransferencia = document.getElementById('transferOkButton').addEve
   })
 })
 
-// fecha o modal;
-const filter = document.getElementById('filter')
+// Fecha o modal;
+let fechaModalTransferencias = document.getElementById('filter')
 .addEventListener('click', (event) => {
-  if (event.target.className.includes('filter')) {
-    document.getElementById('filter').classList.remove('show-filter');
-    document.getElementById('transferModal').classList.remove('show-modal');
-  }
+  fechaModal('transferModal', 'filter', 'filter', event);
 })
 
-// LOGOUT;
+// Botão Cancelar do modal de Transferências.
+const botaoCancelarTransferecias = document.getElementById('cancelButton')
+.addEventListener('click', () => {
+  document.getElementById('filter').classList.remove('show-filter');
+  document.getElementById('transferModal').classList.remove('show-modal');
+})
+
+// Função de LOGOUT do botão no HEADER;
 const logoutButton = document.getElementById('logoutButton')
 .addEventListener('click', () => {
   localStorage.clear();

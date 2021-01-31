@@ -199,9 +199,6 @@ button, a {
     max-width: 100%;
     margin: 0 !important;
   }
-
-  .banner--button {
-  }
 }
 
 /* ABOUT */
@@ -261,7 +258,6 @@ button, a {
 }
 
 .about--row-text {
-  /* max-width: 30%; */
   margin: auto;
 }
 
@@ -300,7 +296,6 @@ button, a {
   display: flex;
   align-items: center;
   justify-content: center;
-  /* max-width: 40%; */
   height: 100%;
   padding: 0 4em;
 }
@@ -316,9 +311,6 @@ button, a {
   padding-left: 1.5em;
 }
 
-.commitment--box-image {
-}
-
 @media screen and (max-width: 821px) {
   .commitment {
     height: auto;
@@ -331,11 +323,9 @@ button, a {
 }
 
 /* GALLERY */
-
 .gallery {
-  /* background: tra */
   padding-top: 95px;
-  background: #1D1C1C;
+  background-image: linear-gradient(to right bottom, #630b90, #6c1798, #7521a1, #7e2aa9, #8733b2, #8733b2, #8733b2, #8733b2, #7e2aa9, #7521a1, #6c1798, #630b90);  
   min-height: calc(100vh - 95px);
 }
 
@@ -371,7 +361,6 @@ button, a {
 
 .gallery--card:hover {
   background: #fff;
-  /* background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(230,230,230,1) 100%, rgba(207,207,207,1) 100%); */
   transform: scale(1.05);
 }
 
@@ -426,7 +415,7 @@ button, a {
   position: absolute;
   top: 3px;
   left: 0;
-  background: #1D1C1C;
+  background: #8733b2;
   width: 90%;
   height: 100%;
   transform: scaleX(1);
@@ -446,7 +435,7 @@ button, a {
   position: absolute;
   bottom: 3px;
   right: 0;
-  background: #1D1C1C;
+  background: #8733b2;
   width: 90%;
   height: 100%;
   transform: scaleX(1);

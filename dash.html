@@ -9,18 +9,16 @@
     integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 
   <link rel="stylesheet" type="text/css" href="./css/dash.styles.css">
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 
   <title>Account</title>
 </head>
 
 <body>
-
-   
-
   <!-- Header Section -->
   <header class="header container-fluid">
     <div class="header--wrapper">
-      <a class="header--logo" href="index.html">
+      <a class="header--logo ms-5" href="index.html">
         Account
       </a>
       <div class="header--nav">
@@ -29,25 +27,36 @@
     </div>
   </header>
 
-  <div class="balance top--offset">
-    <div>
-      <p id="contaNumero">Conta nº 654841-8</p>
+  <!-- box de Profile -->
+  <div class="profile d-flex">
+    <img src="images/profile.png" width="70" height="80" alt="User Profile">
+    <div class="">
+      <h5 class="ms-3" id="welcomeMessage">
+        <!-- content from API -->
+      </h5>
+      <div class="d-flex me-2">
+        <p class="my-0 mx-3" id="contaNumero">
+          <!-- content from API -->
+        </p>
+        <p class="my-0">
+          Saldo: <span class="green--text" id="saldo">R$ 13.654,94</span>
+        </p>
+      </div>
     </div>
-    <div>
-      <p>Saldo: <span class="green--text" id="saldo">R$ 13.654,94</span></p>
-    </div>
+      
   </div>
 
+  <!-- Tabela de Lançamentos -->
   <section class="container top--offset information">
 
     <div class="text-center information--title">
-      <h1>Informações</h1>
+      <h1>DashBoard</h1>
     </div>
 
     <div class="information--wrapper">
-      <div class="information--table">
+      <div class="information--table col-md-6 me-2">
         <table class="table table-striped caption-top">
-          <caption>Lançamentos Futuros(Planos Conta)</caption>
+          <caption class="fw-bold">Lançamentos Futuros(Planos Conta)</caption>
           <thead>
             <tr>
               <th scope="col">Data</th>
@@ -60,22 +69,39 @@
           </tbody>
         </table>
       </div>
-      <div class="information--general">
-          <!-- Button trigger modal -->
-        <button type="button mt-5 pt-5" class="" data-bs-toggle="modal" data-bs-target="#exampleModal">
-          Pagar Contas
-        </button>
-        <button class="" id="transferButton">Transferir</button>
+
+      <div class="information--general col-md-7">
+        <!-- Button trigger modal -->
+        <div class="payments">
+          <h3 clas="payments--title">Ações</h3>
+          <div class="payments--wrapper">
+            <div class="payments--pay me-5">
+              <p class="payments--pay-text">O Pix já está disponível, registre sua chave e já começe a usar.</p>
+              <button type="button" class="payments--button" id="paymentButton">
+                Pagar Contas
+                <i class="far fa-credit-card"></i>
+              </button>
+            </div>
+            <div class="payments--transferencias">
+              <p class="payments--transferencias-text">TED, DOC e Pix e Criptomoedas, tudo em um só lugar.</p>
+              <button type="button" class="payments--button" id="transferButton">
+                Transferências
+                <i class="fas fa-random"></i>
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <div class="" id="filter">
+  <!-- Modal de transferência -->
+  <div class="filter-hidden" id="filter">
     <div class="transfer--modal" id="transferModal">
-      <h1>transferir</h1>
-      <form>
+      <h3 class="fw-bold">transferir</h3>
+      <form class="form">
         <section class="d-flex">
-          <div class="mb-3">
+          <div class="mb-3 me-3">
             <label for="transferenciaConta" class="form-label">Conta</label>
             <input type="text" class="form-control" id="transferenciaConta">
           </div>
@@ -84,14 +110,16 @@
             <input type="text" class="form-control" id="transferenciaDestino">
           </div>
         </section>
-        <div class="mb-3">
-          <label for="transferenciaData" class="form-label">Data</label>
-          <input type="text" class="form-control" id="transferenciaData">
-        </div>
-        <div class="mb-3">
-          <label for="transferenciaDescricao" class="form-label">Descrição</label>
-          <input type="text" class="form-control" id="transferenciaDescricao">
-        </div>
+        <section class="d-flex">
+          <div class="mb-3 me-3">
+            <label for="transferenciaData" class="form-label">Data</label>
+            <input type="text" class="form-control" id="transferenciaData">
+          </div>
+          <div class="mb-3">
+            <label for="transferenciaDescricao" class="form-label">Descrição</label>
+            <input type="text" class="form-control" id="transferenciaDescricao">
+          </div>
+        </section>
         <div class="mb-3">
           <label for="transferenciaLogin" class="form-label">Login</label>
           <input type="text" class="form-control" id="transferenciaLogin">
@@ -104,57 +132,61 @@
           <label for="transferenciaValor" class="form-label">Valor</label>
           <input type="text" class="form-control" id="transferenciaValor">
         </div>
-
-        <button type="button" id="cancelButton">Cancelar</button>
-        <button type="button" id="transferOkButton">Transferir</button>
+        <div class="d-flex justify-content-end pt-5">
+          <button class="gallery--card-button" type="button" id="cancelButton">
+            <span class="text-danger fw-bold">Cancelar</span>
+          </button>
+          <button class="gallery--card-button ms-3" type="button" id="transferOkButton">
+            <span class="text-success fw-bold">Transferir</span>
+          </button>
+        </div>
       </form>
     </div>
   </div>
 
-
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Realizar Pagamento</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+  <!-- Modal de Pagamentos -->
+  <div class="filter-hidden" id="paymentFilter">
+    <div class="transfer--modal" id="paymentModal">
+      <h3 class="fw-bold">transferir</h3>
+      <form>
+        <div class="mb-3">
+          <label for="pagamentoDescricao" class="form-label">Descrição</label>
+          <input type="text" class="form-control" id="pagamentoDescricao" aria-describedby="emailHelp">
         </div>
-        <div class="modal-body">
-          <form>
-            <div class="mb-3">
-              <label for="pagamentoDescricao" class="form-label">Descrição</label>
-              <input type="text" class="form-control" id="pagamentoDescricao" aria-describedby="emailHelp">
-            </div>
-            <div class="mb-3">
-              <label for="pagamentoId" class="form-label">ID</label>
-              <input type="password" class="form-control" id="pagamentoId">
-            </div>
-            <div class="mb-3">
-              <label for="pagamentoLogin" class="form-label">Login</label>
-              <input type="text" class="form-control" id="pagamentoLogin">
-            </div>
-            <div class="mb-3">
-              <label for="pagamentoPadrao" class="form-label">Padrão</label>
-              <input type="password" class="form-control" id="pagamentoPadrao">
-            </div>
-            <div class="mb-3">
-              <label for="pagamentoTipo" class="form-label">Tipo de Movimentação</label>
-              <input type="text" class="form-control" id="pagamentoTipo">
-            </div>
-          </form>
+        <div class="mb-3">
+          <label for="pagamentoId" class="form-label">ID</label>
+          <input type="password" class="form-control" id="pagamentoId">
         </div>
-        <div class="modal-footer">
-          <button type="button" class="gallery--card-button" data-bs-dismiss="modal"><span>Cancelar</span></button>
-          <button type="button" class="gallery--card-button" data-bs-dismiss="modal" id="payButton"><span>Pagar</span></button>
+        <div class="mb-3">
+          <label for="pagamentoLogin" class="form-label">Login</label>
+          <input type="text" class="form-control" id="pagamentoLogin">
         </div>
+        <div class="mb-3">
+          <label for="pagamentoPadrao" class="form-label">Padrão</label>
+          <input type="password" class="form-control" id="pagamentoPadrao">
+        </div>
+        <div class="mb-3">
+          <label for="pagamentoTipo" class="form-label">Tipo de Movimentação</label>
+          <input type="text" class="form-control" id="pagamentoTipo">
+        </div>
+      </form>
+      <div class="d-flex justify-content-end mt-5">
+        <button type="button" class="gallery--card-button me-4" id="cancelPayment">
+          <span class="text-danger fw-bold">Cancelar</span>
+        </button>
+        <button type="button" class="gallery--card-button" id="confirmPayment">
+          <span class="text-success fw-bold">Pagar</span>
+        </button>
       </div>
     </div>
   </div>
 
+
+
+  <!-- Tabela de Contas (Banco && Crédito) -->
   <section class="account container">
     <table class="table table-striped caption-top me-4">
-      <caption>Conta Banco</caption>
+      <caption class="fw-bold">Conta Banco</caption>
       <thead>
         <tr>
           <th scope="col">Data</th>
@@ -168,7 +200,7 @@
     </table>
 
     <table class="table table-striped caption-top">
-      <caption>Conta Crédito</caption>
+      <caption class="fw-bold">Conta Crédito</caption>
       <thead>
         <tr>
           <th scope="col">Data</th>
@@ -184,7 +216,8 @@
   </section>
 
 
-  <section class="container your-cards">
+  <!-- Seção de Cartões disponíveis -->
+  <section class="container-fluid your-cards bg-light py-5">
     <div class="text-center your-cards--title">
       <h1>Seus cartões</h1>
     </div>
@@ -248,9 +281,10 @@
         </div>
       </div>
     </div>
-
   </section>
 
+
+  <!-- Tabela de Transações -->
   <section class="container transactions">
 
     <div class="text-center transactions--title">
@@ -260,7 +294,7 @@
     <div class="transactions--wrapper">
       <div class="transactions--table">
         <table class="table table-striped caption-top">
-          <caption>Entradas</caption>
+          <caption class="fw-bold">Entradas</caption>
           <thead>
             <tr>
               <th scope="col">Data</th>
@@ -289,7 +323,7 @@
       </div>
       <div class="transactions--table">
         <table class="table table-striped caption-top">
-          <caption>Saídas</caption>
+          <caption class="fw-bold">Saídas</caption>
           <thead>
             <tr>
               <th scope="col">Data</th>
@@ -320,6 +354,7 @@
 
   </section>
 
+  <!-- Footer -->
   <footer class="footer area-150">
     <h6 class="footer--title text-white">Account CopyRight 2021.</h6>
   </footer>

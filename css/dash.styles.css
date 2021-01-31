@@ -96,6 +96,23 @@ p {
   width: 100%;
 }
 
+/* PROFILE */
+.profile {
+  background: #fff;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  top: 95px;
+  left: 0;
+  width: auto;
+  height: 80px;
+  padding: 1em;
+  border-radius: 0 0 16px 0;
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.2);
+  z-index: 900;
+}
+
 /* FOOTER */
 .footer {
   background: #000;
@@ -110,12 +127,8 @@ p {
 }
 
 /* INFORMATION */
-
 .information {
   padding-top: 3rem;
-}
-
-.information--title {
 }
 
 .information--wrapper {
@@ -132,11 +145,85 @@ p {
 
 .information--general {
   padding: .5rem;
-  margin: 2rem auto;
+  margin: 1rem auto;
   max-width: 50%;
 }
 
+/* PAYMENTS */
+.payments {
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 1em;
+  border: 1px solid #d9d9d9;
+  border-radius: 16px;
+  transition: 0.2s ease-in-out;
+}
+
+.payments:hover {
+  background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(230,230,230,1) 100%, rgba(207,207,207,1) 100%);
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.2);
+}
+
+.payments--wrapper {
+  display: flex;
+}
+.payments--transferencias,
+.payments--pay {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: auto;
+}
+.payments--transferencias-text,
+.payments--pay-text {
+  text-align: start;
+  width: 200px;
+}
+
+.payments--button {
+  background: transparent;
+  align-self: start;
+  font-weight: 700;
+  font-size: 20px;
+  position: relative;
+  padding: 0;
+  text-decoration: none;
+  border: none;
+  outline: none;
+}
+
+.payments--button:active,
+.payments--button:focus {
+  outline: none;
+}
+
+.payments--button:after {
+  display:block;
+  content: '';
+  border-radius: 8px;
+  border-bottom: solid 3px #000;  
+  transform: scaleX(0);  
+  transition: transform 350ms ease-in-out;
+  transform-origin:100% 50%
+}
+
+.payments--button:active:after,
+.payments--button:focus:after,
+.payments--button:hover:after { 
+  transform: scaleX(1);
+  transform-origin:0 50%;
+}
+
 /* MODAL */
+.filter-hidden {
+  display: none;
+}
 
 .show-filter {
   background: rgba(0, 0, 0, 0.25);
@@ -156,15 +243,16 @@ p {
   position: absolute;
   left: 0; 
   right: 0; 
-  width: 700px;
+  width: 400px;
   height: auto;
+  padding: 1em;
   margin: 72px auto 0 auto;
-  border-radius: 16px;
   box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.2);
 }
 
 .show-modal {
   display: flex;
+  flex-direction: column;
   z-index: 1200;
   animation: fade 0.7s 1;
 }
@@ -177,7 +265,6 @@ p {
     opacity: 1;
   }
 }
-
 
 .gallery--card-button {
   position: relative;
@@ -236,9 +323,7 @@ p {
   transform: scaleX(0);
 }
 
-
 /* YOUR CARDS */
-
 .your-cards {
   margin-top: 3rem;
   flex-direction: row;
@@ -249,21 +334,16 @@ p {
   margin: .5rem;
 }
 
-
 /* ACCOUNT CREDIT && BANK */
 .account {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
 }
 
 /* TRANSACTIONS */
-
 .transactions {
   padding-top: 3rem;
-}
-
-.transactions--title {
 }
 
 .transactions--wrapper {
@@ -279,9 +359,7 @@ p {
 }
 
 /* BALANCE */
-
 .balance {
-
   position: fixed;
   right: 0;
   top: 0;
@@ -465,33 +543,16 @@ p {
 
   /* INFORMATION */
 
-  .information {
-    /* padding-top: 3rem; */
-  }
-
-  .information--title {
-  }
-
-  .information--wrapper {
-    /* display: flex; */
-    flex-direction: column-reverse;
-  }
-
   .information--table {
-    /* padding: .5rem; */
-    /* margin-left: auto; */
-    /* margin-right: auto; */
     min-width: 80%;
   }
 
   .information--general {
-    /* padding: .5rem; */
     margin: 1rem auto;
     max-width: 80%;
   }
 
   /* YOUR CARDS */
-
   .your-cards {
     margin-top: 1rem;
     flex-direction: column;
@@ -499,137 +560,81 @@ p {
   }
 
   /* TRANSACTIONS */
-
   .transactions {
     padding-top: 3rem;
   }
 
-  .transactions--title {
-  }
-
   .transactions--wrapper {
-    /* display: flex; */
     flex-direction: column;
   }
 
   .transactions--table {
-    /* padding: .5rem; */
-    /* margin-left: auto; */
-    /* margin-right: auto; */
     min-width: 80%;
   }
 
   /* BALANCE */
-
   .balance {
-
     font-size: small;
-
-    /* position: absolute; */
-    /* right: 0; */
-    /* top: 0; */
     width: 25%;
     height: 13%;
-
-    /* display: flex; */
-    /* flex-direction: column; */
-    /* align-items: center; */
-    /* justify-content: flex-end; */
-
-    /* background: #FFFFFF; */
-    /* box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); */
-    /* border-radius: 0px 0px 0px 16px; */
   }
-
 }
 
 @media only screen and (max-width: 426px) {
 
   /* INFORMATION */
-
   .information {
     padding-top: 4rem;
   }
 
-  .information--title {
-  }
-
   .information--wrapper {
-    /* display: flex; */
     flex-direction: column-reverse;
   }
 
   .information--table {
     font-size: small;
     padding: .25rem;
-    /* margin-left: auto; */
-    /* margin-right: auto; */
     min-width: 100%;
   }
 
   .information--general {
-    /* padding: .5rem; */
     margin: 1rem auto;
     max-width: 100%;
   }
 
   /* YOUR CARDS */
-
   .your-cards {
     margin-top: 1rem;
   }
 
-  .your-cards--card {
-    /* margin: .5rem; */
-  }
-
   /* TRANSACTIONS */
-
   .transactions {
     padding-top: 3rem;
   }
 
-  .transactions--title {
-  }
-
   .transactions--wrapper {
-    /* display: flex; */
     flex-direction: column;
   }
 
   .transactions--table {
     font-size: small;
     padding: .25rem;
-    /* margin-left: auto; */
-    /* margin-right: auto; */
     min-width: 100%;
   }
 
   /* BALANCE */
-
   .balance {
-
     font-size: x-small;
 
-    /* position: absolute; */
-    /* right: 0; */
-    /* top: 0; */
     width: 85%;
     height: 6%;
 
-    /* display: flex; */
     flex-direction: row;
     align-items: flex-end;
     justify-content: space-evenly;
-
-    /* background: #FFFFFF; */
-    /* box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); */
-    /* border-radius: 0px 0px 0px 16px; */
   }
 
 }
-
-
 .navbar-link {
   font-weight: 700;
   font-size: 20px;
