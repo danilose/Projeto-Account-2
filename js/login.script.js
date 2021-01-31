@@ -1,7 +1,21 @@
 // espera o DOM estar completamente carregado para continuar
 document.addEventListener("DOMContentLoaded", function(event) {
 
-  document.querySelector('#alert').hidden = true;
+  // verifica se tem alguma msg pro usuário
+  let msgText = localStorage.getItem('@flashMessage')
+
+  // se tiver
+  if (msgText) {
+    // arruma a msg e exibe
+    let msg = document.querySelector('#msg');
+    msg.innerHTML = msgText;
+    msg.hidden = false;
+    localStorage.removeItem('@flashMessage');
+  } else {
+    // esconde a msg
+    msg.innerHTML = '';
+    msg.hidden = true;
+  }
 
   // função para validar o preenchimento do formulário
   function formValidation() {

@@ -10,3 +10,8 @@
     margin-top: 15vh;
   }
 }
+
+.success-text {
+  position: fixed;
+  top: 100px;
+}
